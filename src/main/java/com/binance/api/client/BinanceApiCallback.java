@@ -21,4 +21,17 @@ public interface BinanceApiCallback<T> {
      * @param cause the cause of the failure
      */
     default void onFailure(Throwable cause) {}
+
+
+    /**
+     * Called when socket closing
+     */
+    default void onClosing(Integer code, String reason) {}
+
+    /**
+     * Called when socket closed
+     */
+    default void onClosed(Integer code, String reason) {}
+
+
 }

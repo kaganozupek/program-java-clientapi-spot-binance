@@ -47,6 +47,13 @@ public class BinanceApiWebSocketListener<T> extends WebSocketListener {
   @Override
   public void onClosing(final WebSocket webSocket, final int code, final String reason) {
     closing = true;
+    callback.onClosing(code, reason);
+  }
+
+  @Override
+  public void onClosed(WebSocket webSocket, int code, String reason) {
+    super.onClosed(webSocket, code, reason);
+    callback.onClosed(code, reason);
   }
 
   @Override
